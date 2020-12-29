@@ -54,6 +54,16 @@
         </div>
     </form>
     <script>
+      const text = document.querySelector('#text');
+      const textError = document.querySelector('.text-error');
+      text.oninput =function(){
+        let nameRegrx = RegExp('^[A-Z]{1}[a-zA-Z]{2,}$');
+        if(nameRegrx.test(text.value))
+        textError.textContent ="";
+        else
+         textError.textContent ="Name is InCorrect";
+      }
+      
       const salary= document.querySelector('#salary');
       const output = document.querySelector('.salary-output');
       output.textContent = salary.value;

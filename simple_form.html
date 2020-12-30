@@ -17,6 +17,7 @@
         <div>
             <label for="pwd">password input type:</label>
             <input type="password" id="pwd" name="pwd" required>
+            <error-output class="pwd-error" for="password"></error-output>
         </div>
         <div>
             <label for="email">email input type:</label>
@@ -86,6 +87,19 @@
         phoneNoError.textContent="";
         else
         phoneNoError.textContent = "Invalid contact number"
+
+      });
+
+      //UC4 - Validate password min 8 characters
+      //UC4 - atleast 1 uppercase and has exactly one special character ,atleat 1 numeric number
+      const passwd = document.querySelector('#pwd');
+      const passwdError = document.querySelector('.pwd-error');
+      passwd.addEventListener('input',function(){
+        let pwdRegex = RegExp('^(?=.*[0-9])(?=.*[A-Z])(?=.*[^0-9a-zA-Z])(?!.*[^0-9a-zA-Z].*[^0-9a-zA-Z]).{8,}$');
+        if(pwdRegex.test(passwd.value))
+        passwdError.textContent ="";
+        else
+        passwdError.textContent ="Invalid password";
 
       });
 

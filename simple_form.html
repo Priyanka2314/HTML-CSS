@@ -34,6 +34,7 @@
         <div>
             <label for="tel">tel input type:</label>
             <input type="tel" id="tel" name="tel">
+            <error-output class="number-error" for="text"></error-output>
         </div>
         <div>
             <label for="search">search input type:</label>
@@ -73,6 +74,18 @@
         emailError.textContent="";
         else
         emailError.textContent ="Invalid email"
+
+      });
+
+      //UC3 - Validate phone number
+      const phoneNo = document.querySelector('#tel');
+      const phoneNoError = document.querySelector('.number-error');
+      phoneNo.addEventListener('input',function(){
+        let phoneRegex = RegExp("^[1-9]{2}[ ]{1}[0-9]{10}$");
+        if(phoneRegex.test(phoneNo.value))
+        phoneNoError.textContent="";
+        else
+        phoneNoError.textContent = "Invalid contact number"
 
       });
 
